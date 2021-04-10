@@ -8,13 +8,19 @@ class App extends React.Component {
     super(props);
     this.state = {
       session_id: 1,
+      is_choice_active: true,
       current_choice_name: ['choice 0'],
       options: ["option 1", "option 2"],
-      results: []
+      results: [],
+      buttons_checked: [0, 0],
     }
     this.getCurrentOptions(1)
     this.getCurrentResults();
   }
+
+  buttonBackgroundColors = [
+    'white', '#5784CB'
+  ]
 
   getOption(i) {
     const options = this.state.options;
@@ -29,7 +35,8 @@ class App extends React.Component {
         start_timestamp: info['start-timestamp'],
         end_timestamp: info['start-timestamp'],
         current_choice_name: info['choice-name'],
-        options: [info['choices'][0], info['choices'][1]]
+        options: [info['choices'][0], info['choices'][1]],
+        is_choice_active: true,
       });
     });
   };
@@ -41,7 +48,7 @@ class App extends React.Component {
       var results = {
         "choice1": { choices: ["Let Shinto salvage the pod", "Retain ownership of the pod"], results: [0, 0] },
         "choice2": { choices: ["Offer to work with Arthur", "Offer to work with Shinto"], results: [0, 0] },
-        "choice3": { choices: ["Discuss solution with Shinto", "Bring solution to Claire"], results: [0, 0] }
+        "choice3": { choices: ["Discuss solution with Shinto", "Bring solution to Claire"], results: [0, 0] },
       };
 
       snapshot.forEach(function (snapshot) {
@@ -63,7 +70,7 @@ class App extends React.Component {
       "answer": answer,
       "choice-name": this.state.current_choice_name,
       "timestamp": Date.now(),
-      "session-id": this.state.session_id
+      "session-id": this.state.session_id,
     });
   };
 
@@ -80,7 +87,7 @@ class App extends React.Component {
       "choice-name": this.choices[i].name,
       "choices": {
         0: this.choices[i].choices[0],
-        1: this.choices[i].choices[1]
+        1: this.choices[i].choices[1],
       },
       "start-timestamp": 0,
       "end-timestamp": 0
@@ -92,10 +99,55 @@ class App extends React.Component {
     ref.on("value", snapshot => {
       const state = snapshot.val();
       this.setState({
-        options: [state[0], state[1]]
+        options: [state[0], state[1]],
       });
     });
   };
+
+  // If 1 return 0, if 0 return 1
+  flipInt(i) {
+    return Math.abs(i - 1)
+  }
+
+  buttonClicked(i) {
+    if (this.state.buttons_checked[i] == 1) {
+      return
+    }
+    var buttons = [0, 0]
+    buttons[i] = this.flipInt(this.state.buttons_checked[i]);
+    buttons[this.flipInt(i)] = 0
+    this.setState({
+      buttons_checked: buttons,
+    })
+  }
+
+  isEitherChecked(buttons) {
+    return (buttons[0] == 1 || buttons[1] == 1);
+  }
+
+  submit() {
+    var answer = this.state.buttons_checked[0] == 1 ? 0 : 1;
+    this.sendResponse(answer);
+    this.setState({
+      is_choice_active: false,
+      buttons_checked: [0, 0],
+    })
+  }
+
+  ChoiceDiv = () => (
+    <div>
+      <p>What will you choose??</p>
+      <button id="right" onClick={() => this.buttonClicked(0)} style={{ backgroundColor: this.buttonBackgroundColors[this.state.buttons_checked[0]] }}>
+        {this.getOption(0)}
+      </button>
+      <button id="left" onClick={() => this.buttonClicked(1)} style={{ backgroundColor: this.buttonBackgroundColors[this.state.buttons_checked[1]] }}>
+        {this.getOption(1)}
+      </button>
+      <button id="submit" onClick={() => this.submit()} disabled={!this.isEitherChecked(this.state.buttons_checked)}>
+        Submit
+      </button>
+    </div>
+  )
 
   render() {
     return (
@@ -115,14 +167,13 @@ class App extends React.Component {
           </a> */}
           <p>results: {this.state.results}</p>
           <p>current choice name: {this.state.current_choice_name}</p>
-          <p>What will you choose??</p>
-          <button onClick={() => this.sendResponse(0)}>
-            {this.getOption(0)}
-          </button>
-          <button onClick={() => this.sendResponse(1)}>
-            {this.getOption(1)}
-          </button>
+          {this.state.is_choice_active ? <this.ChoiceDiv /> : null}
+          <div>
+          </div>
         </header>
+        <button onClick={() => this.setState({ is_choice_active: !this.state.is_choice_active })}>
+          Toggle is choice active
+        </button>
 
         <button onClick={() => this.setChoice(1)}>
           Set Choice 1

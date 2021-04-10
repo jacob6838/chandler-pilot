@@ -12,7 +12,29 @@ code {
     monospace;
 }
 
-button {
-  height: 70px;
-  width: 200px;
+#left {
+  position: absolute;
+  left: 10%;
+  width: 30%;
+  height: 15%;
+  font-size: xx-large;
+  background-color: white;
+}
+
+#right {
+  position: absolute;
+  right: 10%;
+  width: 30%;
+  height: 15%;
+  font-size: xx-large;
+  background-color: white;
+}
+
+#submit {
+  position: absolute;
+  bottom: 50px;
+  left: 40%;
+  width: 20%;
+  height: 8%;
+  font-size: xx-large;
 }
