@@ -19,7 +19,7 @@ class App extends React.Component {
   }
 
   buttonBackgroundColors = [
-    'white', '#5784CB'
+    'black', '#5784CB'
   ]
 
   getOption(i) {
@@ -136,16 +136,23 @@ class App extends React.Component {
 
   ChoiceDiv = () => (
     <div>
-      <p>What will you choose??</p>
+      <p data-text="Choose">Choose</p>
+      {/* <div class="glitch" data-text="Choose">Choose</div> */}
+          
+      {/* <a class="btn-link" onClick={() => alert('stuff')}>
+          <span class="link-inner" style={{ backgroundColor: this.buttonBackgroundColors[this.state.buttons_checked[0]] }}>
+          {this.getOption(0)}
+          </span>
+      </a> */}
       <button id="right" onClick={() => this.buttonClicked(0)} style={{ backgroundColor: this.buttonBackgroundColors[this.state.buttons_checked[0]] }}>
-        {this.getOption(0)}
+        <div class="glitch" data-text={this.getOption(0)}>{this.getOption(0)}</div>
       </button>
       <button id="left" onClick={() => this.buttonClicked(1)} style={{ backgroundColor: this.buttonBackgroundColors[this.state.buttons_checked[1]] }}>
-        {this.getOption(1)}
+        <div class="glitch" data-text={this.getOption(1)}>{this.getOption(1)}</div>
       </button>
-      <button id="submit" onClick={() => this.submit()} disabled={!this.isEitherChecked(this.state.buttons_checked)}>
+      {/* <button id="submit" onClick={() => this.submit()} disabled={!this.isEitherChecked(this.state.buttons_checked)}>
         Submit
-      </button>
+      </button> */}
     </div>
   )
 
@@ -165,8 +172,11 @@ class App extends React.Component {
           >
             Learn React
           </a> */}
-          <p>results: {this.state.results}</p>
-          <p>current choice name: {this.state.current_choice_name}</p>
+          {/* <p>results: {this.state.results}</p>
+          <p>current choice name: {this.state.current_choice_name}</p> */}
+          {/* <button class="link-inner">
+            On a button
+          </button> */}
           {this.state.is_choice_active ? <this.ChoiceDiv /> : null}
           <div>
           </div>
