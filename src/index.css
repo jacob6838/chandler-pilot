@@ -18,7 +18,7 @@ code {
   width: 30%;
   height: 15%;
   font-size: xx-large;
-  background-color: white;
+  background-color: black;
 }
 
 #right {
@@ -27,14 +27,21 @@ code {
   width: 30%;
   height: 15%;
   font-size: xx-large;
-  background-color: white;
+  background-color: black;
 }
 
-#submit {
+#prompt {
   position: absolute;
-  bottom: 50px;
-  left: 40%;
-  width: 20%;
-  height: 8%;
-  font-size: xx-large;
+  top: 10%;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 8vw;
+}
+
+.choice {
+  width: 150px;
+  height: 60px;
 }
