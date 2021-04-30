@@ -13,17 +13,97 @@
   color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 Bar {
   font-size: calc(10px + 2vmin);
   color: white;
   overflow: visible;
+}
+
+.Bios-body {
+  background-color: black;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+#bios {
+  font-family: Nova Flat;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+#bio {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  min-height: 20vw;
+  border-bottom: 5px solid white;
+}
+
+#bio #description{
+  font-size: calc(10px + 2vmin);
+  margin-left: 20px;
+}
+
+#bios-title{
+  font-size: calc(10px + 8vmin);
+  margin-left: 40px;
+}
+
+#title{
+  font-size: calc(10px + 5vmin);
+  margin-left: 40px;
+}
+
+#bio a {
+  font-size: calc(10px + 3vmin);
+}
+
+#bio img {
+  height: 20vw;
+  float: left;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+#waitingDiv {
+  background-image: url('images/lacuna_title.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+#waitingDiv {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.grid-container {
+  display: grid;
+  padding: 10px;
+  grid-template-columns: auto auto auto;
+}
+
+.grid-item {
+  border: 1px solid white;
+  padding: 20px;
+  /* height: 300px */
+}
+
+#closingDiv {
+  font-size: calc(10px + 5vmin);
+}
+
+#bios-link {
+  position: relative;
+  top: 200px;
+  font-size: calc(10px + 10vmin);
 }
