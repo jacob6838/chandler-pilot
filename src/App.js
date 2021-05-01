@@ -37,7 +37,7 @@ function App() {
   );
 }
 
-const session_id = 2;
+const session_id = 3;
 
 class Choice extends React.Component {
   constructor(props) {
@@ -522,57 +522,73 @@ class Bios extends React.Component {
         </header>
         <div className="Bios-body">
           <div id="bios">
-            <p id="bios-title">Lacuna Production Team</p>
-            <div id="bio">
-              <p id="title">Director, Producer, Story Idea, Director of Photography, Editor, VFX, Sound Design - Chandler Oppenheimer</p>
-              <div>
-                <a href="https://www.Oppenheimeraudio.com/"><img src={chandler_oppenheimer} /></a>
-                <p id="description">Chandler is currently earning their Masters for Theatrical Sound & Digital Media Design at the University of Tennessee. Recently was Sound Designer for Clarence Brown Theatre’s productions of Blithe Spirit, Exit Pursued by a Bear, and Detroit ‘67 as well as Utah Shakespeare Festival’s production of Every Brilliant Thing. Projections Designer for UT Opera’s Carmen and Clarence Brown Theatre’s canceled production of A Gentlemen’s Guide to Love and Murder. Chandler was also Director of Photography and Video Editor for A Christmas Memory and Video Editor for Clarence Brown Theatre’s virtual production of Airness. They will continue finding new inventive ways to tell compelling stories that can reach wider audiences.</p>
+            <b id="bios-title">Lacuna Production Team</b>
+            <div className="column">
+              <div className="bio">
+                <b className="title">Director, Producer, Story Idea, Director of Photography, Editor, VFX, Sound Design - Chandler Oppenheimer</b>
+                <div>
+                  <div className="imageDiv">
+                    <a href="https://www.Oppenheimeraudio.com/"><img src={chandler_oppenheimer} /></a>
+                    <a href="https://www.Oppenheimeraudio.com/" className="linkText">Oppenheimeraudio.com</a>
+                  </div>
+                  <p className="description">Chandler is currently earning their Masters for Theatrical Sound & Digital Media Design at the University of Tennessee. Recently was Sound Designer for Clarence Brown Theatre’s productions of Blithe Spirit, Exit Pursued by a Bear, and Detroit ‘67 as well as Utah Shakespeare Festival’s production of Every Brilliant Thing. Projections Designer for UT Opera’s Carmen and Clarence Brown Theatre’s canceled production of A Gentlemen’s Guide to Love and Murder. Chandler was also Director of Photography and Video Editor for A Christmas Memory and Video Editor for Clarence Brown Theatre’s virtual production of Airness. They will continue finding new inventive ways to tell compelling stories that can reach wider audiences.</p>
+                </div>
+              </div>
+              <div className="bio">
+                <b className="title">Protagonist - Christine Sage</b>
+                <div>
+                  <div className="imageDiv">
+                    <img src={christine_sage} />
+                  </div>
+                  <p className="description">Christine Sage is delighted to be part of this creative production. At the CBT she recently played Ruth in Blithe Spirit and Mrs. Cratchit in A Christmas Carol. She comes from Los Angeles, where she won an Ovation Award for her performance in Shakespeare’s The Tempest. In California she is a company member with The Porters of Hellsgate and Sacred Fools Theater. She’d like to thank her parents as well as all the teachers who have helped her grow as an artist and as a person.</p>
+                </div>
+              </div>
+              <div className="bio">
+                <b className="title">Lighting Design and PA - Helen Garcia-Alton</b>
+                <div>
+                  <div className="imageDiv">
+                    <a href="https://www.helengarcia-alton.com"><img src={helen_garcia_alton} /></a>
+                    <a href="https://www.helengarcia-alton.com" className="linkText">helengarcia-alton.com</a>
+                  </div>
+                  <p className="description">Helen Garcia-Alton is a third-year graduate candidate in Lighting Design at the University of Tennessee, Knoxville. Recent designs include: The Hacking of Nezar Scorge (52nd Street New Horizons Theatre), Persephone (GO! Contemporary Dance Works) and Forging Ahead (GO! Contemporary Dance Works). Thank you Chandler, for the trust, and the opportunity to work in a new medium. </p>
+                </div>
               </div>
             </div>
-            <div id="bio">
-              <p id="title">Playwright - Artie Kaye</p>
-              <div>
-                <p id="description">Artie Kaye has written all of their life, having created many short stories, film scripts, and one act plays. This is their first full length play. Bolstered by the enjoyment of this project, they've begun work on their first video game script.</p>
+            <div className="column">
+              <div className="bio">
+                <b className="title">Playwright - Artie Kaye</b>
+                <div>
+                  <p className="description">Artie Kaye has written all of their life, having created many short stories, film scripts, and one act plays. This is their first full length play. Bolstered by the enjoyment of this project, they've begun work on their first video game script.</p>
+                </div>
+              </div>
+              <div className="bio">
+                <b className="title">Antagonist - David Brian Alley</b>
+                <div>
+                  <div className="imageDiv">
+                    <img src={david_brian_alley} />
+                  </div>
+                  <p className="description">David has been a professional actor since 1990 and joined the UT Theatre faculty as an Artist-in-Residence in 2001. Now a Senior Lecturer, he teaches Acting and Play Analysis in the Undergraduate program, and performs regularly with the Clarence Brown Theatre Company.  He also coaches dialect.
+                  David holds an MFA in Theatre-Performance and a BA in Theatre from UT, as well as an AA in Acting from the American Academy of Dramatic Arts in Los Angeles. He also studied at South Coast Repertory’s Professional Conservatory in Costa Mesa, CA.
+  David earned his Actor’s Equity Card at the Mark Taper Forum in Los Angeles in 1990, where he worked with the Taper’s Improvisational Theatre Project, and also appeared as an Attendant in the West Coast Premiere of Miss Evers’ Boys. In Chicago, he appeared with House Team Faulty Wiring at the iO Theatre for a two-year run, where he played, on occasion, with Tina Fey and Amy Poehler. David has performed in 55 productions at the CBT with King Charles III, The 39 Steps, Santaland Diaries, Titus Andronicus, ‘Art’, Stones in His Pockets, Copenhagen, and Moonlight & Magnolias being among his favorites. Regionally, David has performed at PlayMakers Repertory in Chapel Hill, NC. Film: Light from Light; The Heart is Deceitful; Gina: An Actress Age 29 (which won the 2001 Short Film Jury Award at the Sundance Film Festival); Something, Anything.  TV:  Women of the Movement (ABC); Snapped; It’s a Miracle; Unsolved Mysteries.</p>
+                </div>
+              </div>
+              <div className="bio">
+                <b className="title">Web Application Programmer - Jacob Frye</b>
+                <div>
+                  {/* <img src={jacob_frye} /> */}
+                  <p className="description">Jacob Frye is a professional software developer, working for Neaera Consulting and Virginia Tech Transportation Institute. Recent website/development projects include creating a Work Zone Data Collection Tool, developing a data processing network in AWS, developing a mobile survey app for the Arapaho Nation Tribe, and updating a forecasting web application for New Belgium Brewing. </p>
+                </div>
+              </div>
+              <div className="bio">
+                <b className="title">Prop Prosthetic - DJ Pike</b>
+              </div>
+              <div className="bio">
+                <b className="title">Additional Voices - Michael Najman</b>
               </div>
             </div>
-            <div id="bio">
-              <p id="title">Protagonist - Christine Sage</p>
-              <div>
-                <img src={christine_sage} />
-                <p id="description">Christine Sage is delighted to be part of this creative production. At the CBT she recently played Ruth in Blithe Spirit and Mrs. Cratchit in A Christmas Carol. She comes from Los Angeles, where she won an Ovation Award for her performance in Shakespeare’s The Tempest. In California she is a company member with The Porters of Hellsgate and Sacred Fools Theater. She’d like to thank her parents as well as all the teachers who have helped her grow as an artist and as a person.</p>
-              </div>
+            <div>
+              <b className="title">Special Thanks to Joe Payne, Bill Miller, Owl, various Discord servers.</b>
             </div>
-            <div id="bio">
-              <p id="title">Antagonist - David Brian Alley</p>
-              <div>
-                <img src={david_brian_alley} />
-                <p id="description">David has been a professional actor since 1990 and joined the UT Theatre faculty as an Artist-in-Residence in 2001. Now a Senior Lecturer, he teaches Acting and Play Analysis in the Undergraduate program, and performs regularly with the Clarence Brown Theatre Company.  He also coaches dialect.
-                David holds an MFA in Theatre-Performance and a BA in Theatre from UT, as well as an AA in Acting from the American Academy of Dramatic Arts in Los Angeles. He also studied at South Coast Repertory’s Professional Conservatory in Costa Mesa, CA.
-David earned his Actor’s Equity Card at the Mark Taper Forum in Los Angeles in 1990, where he worked with the Taper’s Improvisational Theatre Project, and also appeared as an Attendant in the West Coast Premiere of Miss Evers’ Boys. In Chicago, he appeared with House Team Faulty Wiring at the iO Theatre for a two-year run, where he played, on occasion, with Tina Fey and Amy Poehler. David has performed in 55 productions at the CBT with King Charles III, The 39 Steps, Santaland Diaries, Titus Andronicus, ‘Art’, Stones in His Pockets, Copenhagen, and Moonlight & Magnolias being among his favorites. Regionally, David has performed at PlayMakers Repertory in Chapel Hill, NC. Film: Light from Light; The Heart is Deceitful; Gina: An Actress Age 29 (which won the 2001 Short Film Jury Award at the Sundance Film Festival); Something, Anything.  TV:  Women of the Movement (ABC); Snapped; It’s a Miracle; Unsolved Mysteries.</p>
-              </div>
-            </div>
-            <div id="bio">
-              <p id="title">Lighting Design and PA - Helen Garcia-Alton</p>
-              <div>
-                <a href="https://www.helengarcia-alton.com"><img src={helen_garcia_alton} /></a>
-                <p id="description">Helen Garcia-Alton is a third-year graduate candidate in Lighting Design at the University of Tennessee, Knoxville. Recent designs include: The Hacking of Nezar Scorge (52nd Street New Horizons Theatre), Persephone (GO! Contemporary Dance Works) and Forging Ahead (GO! Contemporary Dance Works). Thank you Chandler, for the trust, and the opportunity to work in a new medium. </p>
-              </div>
-            </div>
-            <div id="bio">
-              <p id="title">Web Application Programmer - Jacob Frye</p>
-              <div>
-                {/* <img src={jacob_frye} /> */}
-                <p id="description">Jacob Frye is a professional software developer, working for Neaera Consulting and Virginia Tech Transportation Institute. Recent website/development projects include creating a Work Zone Data Collection Tool, developing a data processing network in AWS, developing a mobile survey app for the Arapaho Nation Tribe, and updating a forecasting web application for New Belgium Brewing. </p>
-              </div>
-            </div>
-            <div id="bio">
-              <p id="title">Additional Voices - Michael Najman</p>
-            </div>
-            <div id="bio">
-              <p id="title">Prop Prosthetic - DJ Pike</p>
-            </div>
-            <p id="title">Special Thanks to Joe Payne, Bill Miller, Owl, various Discord servers.</p>
           </div>
         </div>
       </div>

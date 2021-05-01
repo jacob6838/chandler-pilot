@@ -25,22 +25,31 @@ Bar {
   color: white;
 }
 
+b {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
 #bios {
   font-family: Nova Flat;
   margin-left: 20%;
   margin-right: 20%;
 }
 
-#bio {
-  margin-bottom: 50px;
-  margin-top: 50px;
-  min-height: 20vw;
-  border-bottom: 5px solid white;
+.bio {
+  margin-bottom: 30px;
+  /* min-height: 20vw; */
+  border-bottom: 3px solid white;
+  overflow: hidden;
 }
 
-#bio #description{
-  font-size: calc(10px + 2vmin);
-  margin-left: 20px;
+.bio .description{
+  font-size: calc(10px + 1.2vmin);
+  /* margin-left: 20px; */
+  color: #DDDDDD;
 }
 
 #bios-title{
@@ -49,20 +58,30 @@ Bar {
 }
 
 #title{
-  font-size: calc(10px + 5vmin);
-  margin-left: 40px;
-}
-
-#bio a {
   font-size: calc(10px + 3vmin);
+  margin-left: 40px;
+  color: #AAAAAA;
 }
 
-#bio img {
-  height: 20vw;
-  float: left;
+.bio a {
+  font-size: calc(10px + .7vmin);
+  margin-top: 0px;
+}
+
+.bio img {
+  height: 15vw;
   margin-right: 20px;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  /* margin-left: 20px; */
+  /* margin-bottom: 10px; */
+}
+
+.imageDiv {
+  float: left;
+}
+
+.linkText {
+  font-size: calc(10px + .2vmin);
+  display: block;
 }
 
 #waitingDiv {
@@ -106,4 +125,11 @@ Bar {
   position: relative;
   top: 200px;
   font-size: calc(10px + 10vmin);
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  overflow: hidden;
 }
